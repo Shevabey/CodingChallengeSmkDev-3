@@ -1,0 +1,56 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge SMKDEV</title>
+  </head>
+  <body>
+    <h1>Format underscore_case menjadi camelCase</h1>
+    <textarea id="inputTextArea" cols="40" rows="5"></textarea>
+    <button onclick="convertToCamelCase()">Convert</button>
+    <div id="output"></div>
+    <script src="script.js"></script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Convert underscore_case to camelCase</h1>
+    <textarea id="inputText" rows="5" cols="30"></textarea>
+    <button id="convertButton">Convert</button>
+
+    <script>
+      // mengambil id button convertButton
+      document
+        .getElementById("convertButton")
+        .addEventListener("click", function () {
+          // Mendapatkan teks dari textarea
+          const inputText = document.getElementById("inputText").value;
+
+          // Memisahkan kata-kata berdasarkan spasi
+          const words = inputText.split(/\s+/);
+
+          // Mengubah setiap kata menjadi camelCase
+          const camelCaseWords = words.map(function (word) {
+            const parts = word.split("_");
+            for (let i = 1; i < parts.length; i++) {
+              parts[i] = parts[i][0].toUpperCase() + parts[i].slice(1);
+            }
+            return parts.join("");
+          });
+
+          // Menampilkan hasil di console
+          camelCaseWords.forEach(function (word) {
+            console.log(word);
+          });
+        });
+    </script>
+  </body>
+</html>
